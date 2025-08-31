@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:bms_mobile/auth/presentation/welcome_page.dart';
 import 'package:bms_mobile/core/presentation/theme.dart';
 import 'package:bms_mobile/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,13 +26,13 @@ class MyApp extends ConsumerWidget {
             title: 'BMS Mobile',
             theme: AppTheme.lightCupertinoTheme,
             debugShowCheckedModeBanner: false,
-            home: Container(),
+            home: const WelcomePage(),
           )
         : MaterialApp(
             title: 'BMS Mobile',
             theme: AppTheme.lightMaterialTheme,
             debugShowCheckedModeBanner: false,
-            home: Container(),
+            home: const WelcomePage(),
           );
   }
 }
