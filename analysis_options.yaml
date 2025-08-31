@@ -7,7 +7,10 @@
 
 # The following line activates a set of recommended lints for Flutter apps,
 # packages, and plugins designed to encourage good coding practices.
-include: package:flutter_lints/flutter.yaml
+include: package:very_good_analysis/analysis_options.yaml
+
+formatter:
+  trailing_commas: preserve
 
 linter:
   # The lint rules applied to this project can be customized in the
@@ -26,3 +29,13 @@ linter:
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
+
+analyzer:
+  errors:
+    avoid_catches_without_on_clauses: ignore
+    invalid_annotation_target: ignore
+    lines_longer_than_80_chars: ignore
+    public_member_api_docs: ignore
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
