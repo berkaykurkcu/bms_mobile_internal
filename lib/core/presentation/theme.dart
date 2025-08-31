@@ -14,7 +14,7 @@ class AppTheme {
   static const Color cardColor = Colors.white;
 
   static CupertinoThemeData get lightCupertinoTheme {
-    return CupertinoThemeData(
+    return const CupertinoThemeData(
       primaryColor: primaryColor,
       scaffoldBackgroundColor: backgroundColor,
       barBackgroundColor: Colors.transparent,
@@ -31,7 +31,7 @@ class AppTheme {
         surface: backgroundColor,
       ),
       scaffoldBackgroundColor: backgroundColor,
-      appBarTheme: AppBarTheme(
+      appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         foregroundColor: darkTextColor,
         elevation: 0,
@@ -83,7 +83,7 @@ class AppTheme {
           borderSide: const BorderSide(color: errorColor),
         ),
       ),
-      textTheme: TextTheme(),
+      textTheme: const TextTheme(),
     );
   }
 }

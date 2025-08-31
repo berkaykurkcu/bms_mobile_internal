@@ -1,5 +1,7 @@
+import 'package:bms_mobile/auth/presentation/register_page.dart';
 import 'package:bms_mobile/core/presentation/theme.dart';
 import 'package:bms_mobile/core/presentation/widgets/custom_button.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -42,7 +44,14 @@ class WelcomePage extends ConsumerWidget {
 
               CustomButton(
                 text: 'Kayıt Ol',
-                onPressed: () => {},
+                onPressed: () => {
+                  Navigator.push(
+                    context,
+                    CupertinoPageRoute<void>(
+                      builder: (context) => const RegisterPage(),
+                    ),
+                  ),
+                },
               ),
               const SizedBox(height: 24),
 
