@@ -58,9 +58,7 @@ class MyApp extends ConsumerWidget {
       debugShowCheckedModeBanner: false,
       navigatorKey: navigatorKey,
       home: const WelcomePage(),
-      localizationsDelegates: const [],
       supportedLocales: const [
-        Locale('en'),
         Locale('tr'),
       ],
     );
