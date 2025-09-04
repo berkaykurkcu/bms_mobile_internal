@@ -4,6 +4,7 @@ import 'package:bms_mobile/auth/presentation/login_page.dart';
 import 'package:bms_mobile/auth/presentation/register_page.dart';
 import 'package:bms_mobile/core/presentation/theme.dart';
 import 'package:bms_mobile/core/presentation/widgets/custom_button.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -44,18 +45,20 @@ class WelcomePage extends ConsumerWidget {
               ),
               const SizedBox(height: 24),
 
-              CustomButton(
-                text: 'Kayıt Ol',
-                onPressed: () => {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute<void>(
-                      builder: (context) => const RegisterPage(),
+              if (!kReleaseMode) ...[
+                CustomButton(
+                  text: 'Kayıt Ol',
+                  onPressed: () => {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (context) => const RegisterPage(),
+                      ),
                     ),
-                  ),
-                },
-              ),
-              const SizedBox(height: 24),
+                  },
+                ),
+                const SizedBox(height: 24),
+              ],
 
               CustomButton(
                 text: 'Giriş Yap',
