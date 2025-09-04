@@ -2,6 +2,7 @@ import 'package:bms_mobile/auth/application/auth_notifier.dart';
 import 'package:bms_mobile/auth/application/auth_state.dart';
 import 'package:bms_mobile/auth/presentation/welcome_page.dart';
 import 'package:bms_mobile/core/presentation/theme.dart';
+import 'package:bms_mobile/core/shared/providers.dart';
 import 'package:bms_mobile/firebase_options.dart';
 import 'package:bms_mobile/user/presentation/user_dashboard_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -25,6 +26,8 @@ class MyApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // Initialize local notifications early
+    ref.read(notificationServiceProvider).initialize();
     ref.listen<AuthState>(
       authNotifierProvider,
       (previous, next) {

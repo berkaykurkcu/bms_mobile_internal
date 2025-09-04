@@ -94,5 +94,44 @@ final firebaseMessagingProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef FirebaseMessagingRef = AutoDisposeProviderRef<FirebaseMessaging>;
+String _$flutterLocalNotificationsPluginHash() =>
+    r'7ddacc6af7d67f7f1a34d7166a7d48420e7fa892';
+
+/// See also [flutterLocalNotificationsPlugin].
+@ProviderFor(flutterLocalNotificationsPlugin)
+final flutterLocalNotificationsPluginProvider =
+    AutoDisposeProvider<FlutterLocalNotificationsPlugin>.internal(
+      flutterLocalNotificationsPlugin,
+      name: r'flutterLocalNotificationsPluginProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$flutterLocalNotificationsPluginHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef FlutterLocalNotificationsPluginRef =
+    AutoDisposeProviderRef<FlutterLocalNotificationsPlugin>;
+String _$notificationServiceHash() =>
+    r'275fcc64d6e4edf67398139ca4a0d170e1906980';
+
+/// See also [notificationService].
+@ProviderFor(notificationService)
+final notificationServiceProvider =
+    AutoDisposeProvider<NotificationService>.internal(
+      notificationService,
+      name: r'notificationServiceProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$notificationServiceHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef NotificationServiceRef = AutoDisposeProviderRef<NotificationService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

@@ -6,6 +6,7 @@ import 'package:bms_mobile/auth/domain/auth_repository_interface.dart';
 import 'package:bms_mobile/auth/infrastructure/auth_remote_service.dart';
 import 'package:bms_mobile/auth/infrastructure/auth_repository.dart';
 import 'package:bms_mobile/core/shared/providers.dart';
+import 'package:bms_mobile/user/application/messaging_notifier.dart';
 import 'package:bms_mobile/user/shared/user_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -83,7 +84,7 @@ class AuthNotifier extends _$AuthNotifier {
 
   void _initializeUserServices() {
     try {
-      // ref.read(notificationNotifierProvider.notifier).initialize();
+      ref.read(messagingNotifierProvider.notifier).initialize();
     } catch (e) {
       log('Failed to initialize notification system: $e');
     }
@@ -158,11 +159,6 @@ class AuthNotifier extends _$AuthNotifier {
     try {
       final authRepository = ref.read(authRepositoryProvider);
       await authRepository.signOut();
-
-      // Don't invalidate providers that watch authNotifierProvider
-      //to avoid circular dependency
-      // These providers will automatically be refreshed when
-      //the auth state changes
 
       state = const AuthState();
     } catch (e) {
