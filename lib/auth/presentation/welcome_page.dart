@@ -1,3 +1,4 @@
+import 'dart:developer' as developer;
 import 'package:bms_mobile/auth/presentation/register_page.dart';
 import 'package:bms_mobile/core/presentation/theme.dart';
 import 'package:bms_mobile/core/presentation/widgets/custom_button.dart';
@@ -69,7 +70,7 @@ class WelcomePage extends ConsumerWidget {
                   if (await canLaunchUrl(
                     url,
                   )) {
-                    print('URL can be launched');
+                    developer.log('URL can be launched');
                     await launchUrl(url, mode: LaunchMode.externalApplication);
                   } else {
                     throw 'Could not launch $url';

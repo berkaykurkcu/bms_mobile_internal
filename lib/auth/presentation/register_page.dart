@@ -193,8 +193,18 @@ class _RegisterPageState extends ConsumerState<RegisterPage> {
                               : Icons.visibility_off,
                         ),
                       ),
-                      validator: (value) =>
-                          Validators.validatePassword(value ?? ''),
+                      validator: (value) {
+                        final passwordError = Validators.validatePassword(
+                          value ?? '',
+                        );
+                        if (passwordError != null) {
+                          return passwordError;
+                        }
+                        if (value != _passwordController.text) {
+                          return 'Şifreler eşleşmiyor';
+                        }
+                        return null;
+                      },
                     ),
 
                     const SizedBox(height: 20),
