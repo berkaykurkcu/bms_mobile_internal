@@ -13,6 +13,7 @@ import * as logger from "firebase-functions/logger";
 import { onSchedule } from "firebase-functions/v2/scheduler";
 import { getFirestore } from "firebase-admin/firestore";
 import * as admin from "firebase-admin";
+import * as crypto from "crypto";
 
 // Start writing functions
 // https://firebase.google.com/docs/functions/typescript
@@ -34,10 +35,15 @@ if (!admin.apps.length) {
 }
 
 // HTTP function to send to a single user across all tokens
-export const sendToUser = onRequest(async (req, res) => {
+export const sendFcmNotificationToUser = onRequest(async (req, res) => {
   try {
-    const { uid, title, body, data } =
-      req.method === "POST" ? req.body : req.query;
+    const source = req.method === "POST" ? req.body : req.query;
+    const { uid, title, body, data } = source as {
+      uid?: string;
+      title?: string;
+      body?: string;
+      data?: unknown;
+    };
     if (!uid || !title || !body) {
       res.status(400).send("Missing uid/title/body");
       return;
@@ -60,14 +66,19 @@ export const sendToUser = onRequest(async (req, res) => {
       return;
     }
 
-    const message = {
-      notification: { title: String(title), body: String(body) },
-      data:
-        data && typeof data === "object"
-          ? (data as Record<string, string>)
-          : {},
+    let payloadData: Record<string, string> = {};
+    if (data && typeof data === "object") {
+      payloadData = data as Record<string, string>;
+    }
+
+    const message: admin.messaging.MulticastMessage = {
+      notification: {
+        title: String(title),
+        body: String(body),
+      },
+      data: payloadData,
       tokens,
-    } as admin.messaging.MulticastMessage;
+    };
 
     const result = await admin.messaging().sendEachForMulticast(message);
 
@@ -81,7 +92,8 @@ export const sendToUser = onRequest(async (req, res) => {
     const batch = db.batch();
     result.responses.forEach((r, idx) => {
       if (!r.success) {
-        const code = (r.error && (r.error as any).code) || "";
+        const errObj = r.error as unknown as { code?: string } | undefined;
+        const code = (errObj && errObj.code) || "";
         const token = tokens[idx];
         if (invalidCodes.has(code)) {
           const hash = sha256(token);
@@ -102,7 +114,7 @@ export const sendToUser = onRequest(async (req, res) => {
 
     res.status(200).send({ delivered: result.successCount, pruned });
   } catch (e) {
-    logger.error("sendToUser failed", e);
+    logger.error("sendFcmNotificationToUser failed", e);
     res.status(500).send("Internal error");
   }
 });
@@ -138,6 +150,5 @@ export const pruneStaleTokens = onSchedule(
 );
 
 function sha256(input: string): string {
-  const crypto = require("crypto");
   return crypto.createHash("sha256").update(input).digest("hex");
 }
