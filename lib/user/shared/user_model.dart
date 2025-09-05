@@ -14,7 +14,6 @@ abstract class UserModel with _$UserModel {
     required String phone,
     required String areaCode,
     String? profilePicture,
-    @Default([]) List<String> fcmTokens,
   }) = _UserModel;
 
   const UserModel._();

@@ -15,9 +15,6 @@ _UserModel _$UserModelFromJson(Map<String, dynamic> json) => _UserModel(
   phone: json['phone'] as String,
   areaCode: json['areaCode'] as String,
   profilePicture: json['profilePicture'] as String?,
-  fcmTokens:
-      (json['fcmTokens'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      const [],
 );
 
 Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
@@ -30,5 +27,4 @@ Map<String, dynamic> _$UserModelToJson(_UserModel instance) =>
       'phone': instance.phone,
       'areaCode': instance.areaCode,
       'profilePicture': instance.profilePicture,
-      'fcmTokens': instance.fcmTokens,
     };

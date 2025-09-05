@@ -56,6 +56,9 @@ class MessagingNotifier extends _$MessagingNotifier {
 
   Future<void> _storeToken(User user, String token) async {
     final repo = ref.read(user_providers.userRepositoryProvider);
-    await repo.addFcmToken(uid: user.uid, token: token);
+    final installId = await ref
+        .read(installIdServiceProvider)
+        .getOrCreateInstallId();
+    await repo.addFcmToken(uid: user.uid, token: token, installId: installId);
   }
 }

@@ -1,3 +1,4 @@
+import 'package:bms_mobile/core/infrastructure/install_id_service.dart';
 import 'package:bms_mobile/core/infrastructure/notification_service.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
@@ -45,4 +46,9 @@ NotificationService notificationService(Ref ref) {
   return NotificationService(
     ref.watch(flutterLocalNotificationsPluginProvider),
   );
+}
+
+@riverpod
+InstallIdService installIdService(Ref ref) {
+  return InstallIdService();
 }

@@ -10,8 +10,13 @@ class UserRepository implements UserRepositoryInterface {
   Future<void> addFcmToken({
     required String uid,
     required String token,
+    required String installId,
   }) async {
-    await _remoteService.addFcmToken(uid: uid, token: token);
+    await _remoteService.addFcmToken(
+      uid: uid,
+      token: token,
+      installId: installId,
+    );
   }
 
   @override

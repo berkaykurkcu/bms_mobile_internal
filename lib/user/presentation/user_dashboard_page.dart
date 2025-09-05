@@ -9,7 +9,6 @@ class UserDashboardPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // ANCHOR: user_dashboard_placeholder
     return Scaffold(
       appBar: AppBar(
         title: const Text('Kullanıcı Paneli'),

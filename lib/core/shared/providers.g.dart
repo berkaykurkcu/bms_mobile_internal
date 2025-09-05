@@ -133,5 +133,22 @@ final notificationServiceProvider =
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 typedef NotificationServiceRef = AutoDisposeProviderRef<NotificationService>;
+String _$installIdServiceHash() => r'a205991aaed9154b3ad03a45e009efcf8a4b8fde';
+
+/// See also [installIdService].
+@ProviderFor(installIdService)
+final installIdServiceProvider = AutoDisposeProvider<InstallIdService>.internal(
+  installIdService,
+  name: r'installIdServiceProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$installIdServiceHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef InstallIdServiceRef = AutoDisposeProviderRef<InstallIdService>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

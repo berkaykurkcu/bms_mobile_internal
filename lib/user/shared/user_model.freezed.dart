@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$UserModel {
 
- String get userId; String get firstName; String get lastName; String get email; DateTime get createdAt; String get phone; String get areaCode; String? get profilePicture; List<String> get fcmTokens;
+ String get userId; String get firstName; String get lastName; String get email; DateTime get createdAt; String get phone; String get areaCode; String? get profilePicture;
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $UserModelCopyWith<UserModel> get copyWith => _$UserModelCopyWithImpl<UserModel>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.email, email) || other.email == email)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.areaCode, areaCode) || other.areaCode == areaCode)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&const DeepCollectionEquality().equals(other.fcmTokens, fcmTokens));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is UserModel&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.email, email) || other.email == email)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.areaCode, areaCode) || other.areaCode == areaCode)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userId,firstName,lastName,email,createdAt,phone,areaCode,profilePicture,const DeepCollectionEquality().hash(fcmTokens));
+int get hashCode => Object.hash(runtimeType,userId,firstName,lastName,email,createdAt,phone,areaCode,profilePicture);
 
 @override
 String toString() {
-  return 'UserModel(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, createdAt: $createdAt, phone: $phone, areaCode: $areaCode, profilePicture: $profilePicture, fcmTokens: $fcmTokens)';
+  return 'UserModel(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, createdAt: $createdAt, phone: $phone, areaCode: $areaCode, profilePicture: $profilePicture)';
 }
 
 
@@ -48,7 +48,7 @@ abstract mixin class $UserModelCopyWith<$Res>  {
   factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) _then) = _$UserModelCopyWithImpl;
 @useResult
 $Res call({
- String userId, String firstName, String lastName, String email, DateTime createdAt, String phone, String areaCode, String? profilePicture, List<String> fcmTokens
+ String userId, String firstName, String lastName, String email, DateTime createdAt, String phone, String areaCode, String? profilePicture
 });
 
 
@@ -65,7 +65,7 @@ class _$UserModelCopyWithImpl<$Res>
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? userId = null,Object? firstName = null,Object? lastName = null,Object? email = null,Object? createdAt = null,Object? phone = null,Object? areaCode = null,Object? profilePicture = freezed,Object? fcmTokens = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? userId = null,Object? firstName = null,Object? lastName = null,Object? email = null,Object? createdAt = null,Object? phone = null,Object? areaCode = null,Object? profilePicture = freezed,}) {
   return _then(_self.copyWith(
 userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
@@ -75,8 +75,7 @@ as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: 
 as DateTime,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
 as String,areaCode: null == areaCode ? _self.areaCode : areaCode // ignore: cast_nullable_to_non_nullable
 as String,profilePicture: freezed == profilePicture ? _self.profilePicture : profilePicture // ignore: cast_nullable_to_non_nullable
-as String?,fcmTokens: null == fcmTokens ? _self.fcmTokens : fcmTokens // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as String?,
   ));
 }
 
@@ -161,10 +160,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String userId,  String firstName,  String lastName,  String email,  DateTime createdAt,  String phone,  String areaCode,  String? profilePicture,  List<String> fcmTokens)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String userId,  String firstName,  String lastName,  String email,  DateTime createdAt,  String phone,  String areaCode,  String? profilePicture)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _UserModel() when $default != null:
-return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.createdAt,_that.phone,_that.areaCode,_that.profilePicture,_that.fcmTokens);case _:
+return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.createdAt,_that.phone,_that.areaCode,_that.profilePicture);case _:
   return orElse();
 
 }
@@ -182,10 +181,10 @@ return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.cr
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String userId,  String firstName,  String lastName,  String email,  DateTime createdAt,  String phone,  String areaCode,  String? profilePicture,  List<String> fcmTokens)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String userId,  String firstName,  String lastName,  String email,  DateTime createdAt,  String phone,  String areaCode,  String? profilePicture)  $default,) {final _that = this;
 switch (_that) {
 case _UserModel():
-return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.createdAt,_that.phone,_that.areaCode,_that.profilePicture,_that.fcmTokens);case _:
+return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.createdAt,_that.phone,_that.areaCode,_that.profilePicture);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -202,10 +201,10 @@ return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.cr
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String userId,  String firstName,  String lastName,  String email,  DateTime createdAt,  String phone,  String areaCode,  String? profilePicture,  List<String> fcmTokens)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String userId,  String firstName,  String lastName,  String email,  DateTime createdAt,  String phone,  String areaCode,  String? profilePicture)?  $default,) {final _that = this;
 switch (_that) {
 case _UserModel() when $default != null:
-return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.createdAt,_that.phone,_that.areaCode,_that.profilePicture,_that.fcmTokens);case _:
+return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.createdAt,_that.phone,_that.areaCode,_that.profilePicture);case _:
   return null;
 
 }
@@ -217,7 +216,7 @@ return $default(_that.userId,_that.firstName,_that.lastName,_that.email,_that.cr
 @JsonSerializable()
 
 class _UserModel extends UserModel {
-  const _UserModel({required this.userId, required this.firstName, required this.lastName, required this.email, required this.createdAt, required this.phone, required this.areaCode, this.profilePicture, final  List<String> fcmTokens = const []}): _fcmTokens = fcmTokens,super._();
+  const _UserModel({required this.userId, required this.firstName, required this.lastName, required this.email, required this.createdAt, required this.phone, required this.areaCode, this.profilePicture}): super._();
   factory _UserModel.fromJson(Map<String, dynamic> json) => _$UserModelFromJson(json);
 
 @override final  String userId;
@@ -228,13 +227,6 @@ class _UserModel extends UserModel {
 @override final  String phone;
 @override final  String areaCode;
 @override final  String? profilePicture;
- final  List<String> _fcmTokens;
-@override@JsonKey() List<String> get fcmTokens {
-  if (_fcmTokens is EqualUnmodifiableListView) return _fcmTokens;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_fcmTokens);
-}
-
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
@@ -249,16 +241,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.email, email) || other.email == email)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.areaCode, areaCode) || other.areaCode == areaCode)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture)&&const DeepCollectionEquality().equals(other._fcmTokens, _fcmTokens));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _UserModel&&(identical(other.userId, userId) || other.userId == userId)&&(identical(other.firstName, firstName) || other.firstName == firstName)&&(identical(other.lastName, lastName) || other.lastName == lastName)&&(identical(other.email, email) || other.email == email)&&(identical(other.createdAt, createdAt) || other.createdAt == createdAt)&&(identical(other.phone, phone) || other.phone == phone)&&(identical(other.areaCode, areaCode) || other.areaCode == areaCode)&&(identical(other.profilePicture, profilePicture) || other.profilePicture == profilePicture));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,userId,firstName,lastName,email,createdAt,phone,areaCode,profilePicture,const DeepCollectionEquality().hash(_fcmTokens));
+int get hashCode => Object.hash(runtimeType,userId,firstName,lastName,email,createdAt,phone,areaCode,profilePicture);
 
 @override
 String toString() {
-  return 'UserModel(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, createdAt: $createdAt, phone: $phone, areaCode: $areaCode, profilePicture: $profilePicture, fcmTokens: $fcmTokens)';
+  return 'UserModel(userId: $userId, firstName: $firstName, lastName: $lastName, email: $email, createdAt: $createdAt, phone: $phone, areaCode: $areaCode, profilePicture: $profilePicture)';
 }
 
 
@@ -269,7 +261,7 @@ abstract mixin class _$UserModelCopyWith<$Res> implements $UserModelCopyWith<$Re
   factory _$UserModelCopyWith(_UserModel value, $Res Function(_UserModel) _then) = __$UserModelCopyWithImpl;
 @override @useResult
 $Res call({
- String userId, String firstName, String lastName, String email, DateTime createdAt, String phone, String areaCode, String? profilePicture, List<String> fcmTokens
+ String userId, String firstName, String lastName, String email, DateTime createdAt, String phone, String areaCode, String? profilePicture
 });
 
 
@@ -286,7 +278,7 @@ class __$UserModelCopyWithImpl<$Res>
 
 /// Create a copy of UserModel
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? userId = null,Object? firstName = null,Object? lastName = null,Object? email = null,Object? createdAt = null,Object? phone = null,Object? areaCode = null,Object? profilePicture = freezed,Object? fcmTokens = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? userId = null,Object? firstName = null,Object? lastName = null,Object? email = null,Object? createdAt = null,Object? phone = null,Object? areaCode = null,Object? profilePicture = freezed,}) {
   return _then(_UserModel(
 userId: null == userId ? _self.userId : userId // ignore: cast_nullable_to_non_nullable
 as String,firstName: null == firstName ? _self.firstName : firstName // ignore: cast_nullable_to_non_nullable
@@ -296,8 +288,7 @@ as String,createdAt: null == createdAt ? _self.createdAt : createdAt // ignore: 
 as DateTime,phone: null == phone ? _self.phone : phone // ignore: cast_nullable_to_non_nullable
 as String,areaCode: null == areaCode ? _self.areaCode : areaCode // ignore: cast_nullable_to_non_nullable
 as String,profilePicture: freezed == profilePicture ? _self.profilePicture : profilePicture // ignore: cast_nullable_to_non_nullable
-as String?,fcmTokens: null == fcmTokens ? _self._fcmTokens : fcmTokens // ignore: cast_nullable_to_non_nullable
-as List<String>,
+as String?,
   ));
 }
 
